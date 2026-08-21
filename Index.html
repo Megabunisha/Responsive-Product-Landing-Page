@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>MegaStore | Product Landing Page</title>
+
+<style>
+
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #222;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+header {
+    background: #111827;
+    padding: 20px 8%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #f59e0b;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 70px 8%;
+    background: white;
+}
+
+.hero-content {
+    width: 50%;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.shop-btn {
+    padding: 14px 30px;
+    background: #f59e0b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.shop-btn:hover {
+    background: #d97706;
+}
+
+.hero-image {
+    width: 45%;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+}
+
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products {
+    padding: 70px 8%;
+    text-align: center;
+}
+
+.products h2 {
+    font-size: 36px;
+    margin-bottom: 45px;
+}
+
+.product-container {
+    display: grid;
+    grid-template-columns:
+    repeat(3, 1fr);
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+
+    box-shadow:
+    0 5px 20px
+    rgba(0,0,0,0.12);
+
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card h3 {
+    margin: 20px 0 10px;
+    font-size: 22px;
+}
+
+.card p {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.buy-btn {
+    padding: 10px 22px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buy-btn:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    background: white;
+    padding: 60px 8%;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.about p {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.7;
+    color: #555;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    padding: 60px 8%;
+    text-align: center;
+    background: #e5e7eb;
+}
+
+.contact h2 {
+    margin-bottom: 15px;
+}
+
+.contact p {
+    margin-bottom: 20px;
+}
+
+.contact button {
+    padding: 12px 25px;
+    background: #111827;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#serverMessage {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #111827;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 8px;
+}
+
+footer a:hover {
+    color: #f59e0b;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .hero-image {
+        width: 80%;
+    }
+
+    .product-container {
+        grid-template-columns:
+        repeat(2, 1fr);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .hero {
+        padding: 50px 5%;
+    }
+
+    .hero-content h1 {
+        font-size: 34px;
+    }
+
+    .hero-image {
+        width: 100%;
+    }
+
+    .products {
+        padding: 50px 5%;
+    }
+
+    .product-container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<header>
+
+<nav>
+
+<div class="logo">
+MegaStore
+</div>
+
+<ul>
+
+<li>
+<a href="#home">Home</a>
+</li>
+
+<li>
+<a href="#products">Products</a>
+</li>
+
+<li>
+<a href="#about">About</a>
+</li>
+
+<li>
+<a href="#contact">Contact</a>
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<h1>
+Discover Premium Smart Gadgets
+</h1>
+
+<p>
+Explore modern smart gadgets with premium
+quality, stylish designs and affordable prices.
+Upgrade your digital lifestyle with MegaStore.
+</p>
+
+<button class="shop-btn"
+onclick="shopNow()">
+
+Shop Now
+
+</button>
+
+</div>
+
+
+<div class="hero-image">
+
+<img
+src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800"
+alt="Smart Gadget">
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     PRODUCTS
+========================= -->
+
+<section class="products"
+id="products">
+
+<h2>
+Featured Products
+</h2>
+
+
+<div class="product-container">
+
+
+<div class="card">
+
+<img
+src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600"
+alt="Smart Watch">
+
+<h3>
+Smart Watch
+</h3>
+
+<p>
+Track your fitness and monitor
+your health every day.
+</p>
+
+<button class="buy-btn"
+onclick="buyProduct('Smart Watch')">
+
+Buy Now
+
+</button>
+
+</div>
+
+
+
+<div class="card">
+
+<img
+src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600"
+alt="Wireless Headphones">
+
+<h3>
+Wireless Headphones
+</h3>
+
+<p>
+Enjoy crystal-clear sound with
+long-lasting battery life.
+</p>
+
+<button class="buy-btn"
+onclick="buyProduct('Wireless Headphones')">
+
+Buy Now
+
+</button>
+
+</div>
+
+
+
+<div class="card">
+
+<img
+src="https://images.unsplash.com/photo-1589003077984-894e133dabab?w=600"
+alt="Bluetooth Speaker">
+
+<h3>
+Bluetooth Speaker
+</h3>
+
+<p>
+Experience powerful sound
+anywhere with wireless technology.
+</p>
+
+<button class="buy-btn"
+onclick="buyProduct('Bluetooth Speaker')">
+
+Buy Now
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="about"
+id="about">
+
+<h2>
+About MegaStore
+</h2>
+
+<p>
+MegaStore is a student-developed responsive
+product landing page created to demonstrate
+HTML5, CSS3, Flexbox, CSS Grid and
+responsive web design.
+</p>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="contact"
+id="contact">
+
+<h2>
+Contact Us
+</h2>
+
+<p>
+Click below to communicate with our backend.
+</p>
+
+<button onclick="connectBackend()">
+
+Connect to Backend
+
+</button>
+
+<p id="serverMessage"></p>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<p>
+© 2026 MegaStore.
+All Rights Reserved.
+</p>
+
+<br>
+
+<a href="#">
+Facebook
+</a>
+
+<a href="#">
+Instagram
+</a>
+
+<a href="#">
+LinkedIn
+</a>
+
+</footer>
+
+
+
+<script>
+
+/* SHOP BUTTON */
+
+function shopNow() {
+
+    alert(
+        "Welcome to MegaStore! 🛍️"
+    );
+
+}
+
+
+/* BUY BUTTON */
+
+function buyProduct(product) {
+
+    alert(
+        "You selected: " + product
+    );
+
+}
+
+
+/* BACKEND CONNECTION */
+
+async function connectBackend() {
+
+    const message =
+        document.getElementById(
+            "serverMessage"
+        );
+
+    message.innerText =
+        "Connecting to server...";
+
+    try {
+
+        const response =
+            await fetch(
+                "YOUR_BACKEND_LINK/api/message"
+            );
+
+        const data =
+            await response.json();
+
+        message.innerText =
+            data.message;
+
+    }
+
+    catch (error) {
+
+        message.innerText =
+            "Unable to connect to backend.";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
